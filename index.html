@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hard Mock Test – Class 9 Maths</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      margin: 0;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #38bdf8;
+    }
+    .card {
+      background: #020617;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+    button {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      background: #38bdf8;
+      color: #020617;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0ea5e9;
+    }
+    .question {
+      margin: 12px 0;
+    }
+    .option {
+      margin-left: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔥 Hard Mock Test Generator</h1>
+  <p>Class 9 Maths – Heron's Formula & Surface Areas and Volumes</p>
+
+  <div class="card">
+    <button onclick="generateTest()">Generate Hard Mock Test</button>
+  </div>
+
+  <div id="test" class="card"></div>
+
+  <script>
+    const questions = [
+      {
+        q: "The sides of a triangle are 9 cm, 12 cm and 15 cm. Its area is:",
+        options: ["36 cm²", "54 cm²", "72 cm²", "90 cm²"],
+        answer: 2
+      },
+      {
+        q: "If the edge of a cube is tripled, its volume becomes:",
+        options: ["3 times", "9 times", "27 times", "81 times"],
+        answer: 2
+      },
+      {
+        q: "The semi-perimeter of a triangle with sides 10 cm, 24 cm, 26 cm is:",
+        options: ["30 cm", "25 cm", "20 cm", "60 cm"],
+        answer: 1
+      },
+      {
+        q: "A cuboid has volume 480 cm³. If l = 10 cm and b = 4 cm, find h.",
+        options: ["6 cm", "10 cm", "12 cm", "8 cm"],
+        answer: 0
+      },
+      {
+        q: "How many cubes of side 2 cm can be made from a cube of side 8 cm?",
+        options: ["32", "64", "16", "128"],
+        answer: 1
+      }
+    ];
+
+    function generateTest() {
+      let html = "<h2>📝 Hard MCQ Test</h2>";
+      questions.forEach((item, index) => {
+        html += `<div class='question'><b>Q${index + 1}. ${item.q}</b>`;
+        item.options.forEach((opt, i) => {
+          html += `<div class='option'><input type='radio' name='q${index}' /> ${opt}</div>`;
+        });
+        html += "</div>";
+      });
+      html += "<br><button onclick='alert("Test submitted! Answers will be checked manually.")'>Submit Test</button>";
+      document.getElementById("test").innerHTML = html;
+    }
+  </script>
+
+</body>
+</html>
